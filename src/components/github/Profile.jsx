@@ -37,7 +37,7 @@ class Profile extends Component {
 				    <div className="row">
 				    	<div className="col-md-12">
 				    		{
-				    			<RepoList />
+				    			<RepoList {...this.props} />
 				    		}
 				    	</div>
 				    </div>

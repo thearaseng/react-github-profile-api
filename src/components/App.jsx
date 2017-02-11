@@ -35,10 +35,10 @@ class App extends Component {
 			dataType: 'json',
 			cache: true,
 			success: function(data){
-				this.setState({perPage: data})
+				this.setState({userRepos: data})
 			}.bind(this),
 			error: function(xhr, status, err){
-				this.setState({perPage: []})
+				this.setState({userRepos: []})
 				console.log(err)
 			}
 		})
