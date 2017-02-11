@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom'
 import Profile from './github/Profile.jsx'
+import Search from './github/Search.jsx'
 
 class App extends Component {
 
@@ -29,6 +30,12 @@ class App extends Component {
 		})
 	}
 
+	searchUser(username){
+		this.setState({username: username}, function(){
+			this.componentDidMount()
+		})
+	}
+
 	getUserRepos() {
 		$.ajax({
 			url: 'https://api.github.com/users/'+this.state.username+'/repos?per_page='+this.state.perPage+'&client_id='+this.props.clientId+'&client_secret='+this.props.clientSecret+'&sort=created',
@@ -52,6 +59,7 @@ class App extends Component {
 	render() {
 		return(
 				<div>
+					<Search searchUser={this.searchUser.bind(this)} />
 					<Profile {...this.state} />
 				</div>
 			)

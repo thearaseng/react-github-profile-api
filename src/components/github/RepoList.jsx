@@ -9,6 +9,9 @@ class RepoList extends Component {
 		return(
 
 			<div>
+				<label className="label label-primary">User Repositories</label>
+				<br />
+				<br />
 				<ul className="list-group">
 					{
 						this.props.userRepos.map(repo => {
